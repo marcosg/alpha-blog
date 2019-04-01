@@ -1,0 +1,22 @@
+<% if obj.errors.any? %>
+  <div class="row">
+    <div class="col-8 offset-2">
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h3 class="alert-heading">
+          <%= pluralize(obj.errors.count, "error") %>
+          prohibited this article from being saved:
+        </h3>
+        <div class="panel-body">
+          <ul>
+            <% obj.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
