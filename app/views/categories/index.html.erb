@@ -1,0 +1,18 @@
+<h1 align="center">Listing All Categories</h1>
+<div align="center">
+  <%= will_paginate list_classes: %w(pagination justify-content-center pt-3),
+                    previous_label: "Previous", next_label: "Next" %>
+  <ul class="listing">
+    <% @categories.each do |category| %>
+      <div class="row pb-3">
+        <div class="col-md-4 card card-body bg-light mx-auto">
+          <li class="article-title">
+            <%= link_to "#{category.name}", category_path(category) %>
+          </li>
+        </div>
+      </div>
+    <% end %>
+    <%= will_paginate list_classes: %w(pagination justify-content-center pt-3),
+                      previous_label: "Previous", next_label: "Next" %>
+  </ul>
+</div>
